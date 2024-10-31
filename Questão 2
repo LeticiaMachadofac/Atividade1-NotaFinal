@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de produtos para treino de ginástica rítmica</title>
+      <style>
+       body {
+         font-family: Arial, sans-serif;
+         margin: 20px;
+         background-color: #f8f9fa;
+         }
+
+       h1 {
+         text-align: center;
+         color: #333;
+        }
+
+       table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 20px 0;
+        }
+
+       th, td {
+          border: 1px solid #ddd;
+          padding: 12px;
+          text-align: left;
+        }
+
+       th {
+         background-color: #bf2190;
+         color: white;
+       }
+
+        tbody tr:nth-child(odd) {
+          background-color: #ffe0f8;
+       }
+
+       tbody tr:nth-child(even) {
+          background-color: #fffcfe; 
+       }
+
+       tbody tr:hover {
+          background-color: #f72aba; 
+       }
+
+      </style>
+      </head>
+      <body>
+      <table>
+        <thead>
+          <tr> 
+           <th>Produto</th>
+           <th>Preço</th>
+           <th>Descrição</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr> 
+           <td>Cinturita</td>
+           <td> R$56,90</td>
+           <td>Faixa elástica para proteger a coluna nos treinos. 80% poliester e 20% elastodieno</td>
+          </tr>
+          <tr>
+            <td>Elástico</td>
+            <td>R$45,90</td>
+            <td> Elástico com 10 divisões para auxiliar nos treinos de felxibilidade e força. Estica até 1,90m.</td>
+          </tr>
+          <tr>
+            <td>Sapatilha</td>
+            <td>R$34,90</td>
+            <td>Sapatilha confecionada em tecido na cor creme com 3 camadas para garantir mais resistência e durabilidade.</td>
+          </tr>
+          <tr>
+            <td>Joelheira</td>
+            <td>R$65,90</td>
+            <td>Confecionada com tecido e 2cm de espuma para oferecer proteção as atletas.</td>
+          </tr>
+        </tbody>
+      </table>
+      </body> 
+      </html>
+      
