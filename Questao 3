@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de contato - Questão 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #860afa;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #fc72ef;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #fa2de5;
+        }
+        .message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const name = document.getElementById('nome').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const message = document.getElementById('mensagem').value.trim();
+                const campoMensagem = document.getElementById('enviar');
+
+        
+                campoMensagem.className = 'message';
+                campoMensagem.style.display = 'none';
+
+        
+                if (name === '' || email === '' || message === '') {
+                    campoMensagem.className = 'message error';
+                    campoMensagem.textContent = 'Por favor, preencha todos os campos.';
+                    campoMensagem.style.display = 'block';
+                    return;
+                }
+                
+                const validaEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!validaEmail.test(email)) {
+                    campoMensagem.className = 'message error';
+                    campoMensagem.textContent = 'Por favor, insira um email válido.';
+                    campoMensagem.style.display = 'block';
+                    return;
+                }
+                
+                campoMensagem.className = 'message success';
+                campoMensagem.textContent = 'Mensagem enviada com sucesso!';
+                campoMensagem.style.display = 'block';
+
+                document.getElementById('contactForm').reset();
+            });
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulário de Contato</h1>
+        <form id="contactForm">
+            <label for="name">Nome:</label>
+            <input type="text" id="nome" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" required></textarea>
+
+            <button type="submit">Enviar</button>
+            <div id="enviar" class="message"></div>
+        </form>
+    </div>
+</body>
+</html>
