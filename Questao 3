@@ -96,7 +96,7 @@
                 return;
             }
 
-            mensagemSucesso.textContent = "Mensagem enviada com sucesso."
+            mensagemSucesso.innerText = "Mensagem enviada com sucesso."
             mensagemSucesso.style.display = 'block';
 
             form.reset();
