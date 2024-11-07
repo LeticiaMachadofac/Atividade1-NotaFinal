@@ -52,70 +52,58 @@
             border-radius: 4px;
             display: none;
         }
-        .success {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        .error {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
     </style>
-    <script>
-        window.onload = function() {
-            document.getElementById('contactForm').addEventListener('submit', function(event) {
+    <body>
+        <div class="container">
+            <h1>Formulário de Contato</h1>
+            <form id="contactForm">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome">
+    
+                <label for="email">Email:</label>
+                <input type="email" id="email">
+    
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem"></textarea>
+    
+                <button type="submit">Enviar</button>
+
+                <div id="enviar" class="message"></div>
+            </form>
+        </div>
+    
+        <script>
+            const form = document.getElementById('contactForm');
+            const nome = document.getElementById('nome');
+            const email = document.getElementById('email');
+            const mensagem = document.getElementById('mensagem');
+            
+            
+            form.addEventListener("submit", (event) => {
                 event.preventDefault();
-
-                const name = document.getElementById('nome').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const message = document.getElementById('mensagem').value.trim();
-                const campoMensagem = document.getElementById('enviar');
-
-        
-                campoMensagem.className = 'message';
-                campoMensagem.style.display = 'none';
-
-        
-                if (name === '' || email === '' || message === '') {
-                    campoMensagem.className = 'message error';
-                    campoMensagem.textContent = 'Por favor, preencha todos os campos.';
-                    campoMensagem.style.display = 'block';
+    
+                if (nome.value === "") {
+                    alert("Preencha o campo de nome");
                     return;
                 }
-                
-                const validaEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!validaEmail.test(email)) {
-                    campoMensagem.className = 'message error';
-                    campoMensagem.textContent = 'Por favor, insira um email válido.';
-                    campoMensagem.style.display = 'block';
-                    return;
-                }
-                
-                campoMensagem.className = 'message success';
-                campoMensagem.textContent = 'Mensagem enviada com sucesso!';
-                campoMensagem.style.display = 'block';
+    
+                if (email.value === "" || !validaEmail(email.value)) {
+                alert("Preencha o campo de e-mail com um formato válido");
+                return;
+            }
+            if (mensagem.value === "") {
+                alert("Preencha o campo de mensagem");
+                return;
+            }
 
-                document.getElementById('contactForm').reset();
-            });
-        };
+            form.reset();
+        });
+
+        function validaEmail(email) {
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+            return emailRegex.test(email);
+        }
     </script>
-</head>
-<body>
-    <div class="container">
-        <h1>Formulário de Contato</h1>
-        <form id="contactForm">
-            <label for="name">Nome:</label>
-            <input type="text" id="nome" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" required>
-
-            <label for="mensagem">Mensagem:</label>
-            <textarea id="mensagem" required></textarea>
-
-            <button type="submit">Enviar</button>
-            <div id="enviar" class="message"></div>
-        </form>
-    </div>
 </body>
 </html>
