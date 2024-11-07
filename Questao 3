@@ -77,7 +77,7 @@
             const nome = document.getElementById('nome');
             const email = document.getElementById('email');
             const mensagem = document.getElementById('mensagem');
-            
+            const mensagemSucesso = document.getElementById('enviar');
             
             form.addEventListener("submit", (event) => {
                 event.preventDefault();
@@ -95,6 +95,9 @@
                 alert("Preencha o campo de mensagem");
                 return;
             }
+
+            mensagemSucesso.textContent = "Mensagem enviada com sucesso."
+            mensagemSucesso.style.display = 'block';
 
             form.reset();
         });
