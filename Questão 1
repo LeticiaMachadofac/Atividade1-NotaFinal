@@ -1,10 +1,4 @@
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Pessoal - questão 1</title>
-    <style>
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -25,6 +19,13 @@
             background-color: #ff1281;
             color: white;
             border-radius: 8px;
+        }
+
+        .photo {
+            background-color: #ddd;
+            border-radius: 50%;
+            height: 200px;
+            width: 200px; 
         }
 
         h1 {
@@ -64,12 +65,13 @@
 </head>
 <body>
   <header>
+    <img src="fotoleticia.jpg" alt="foto de perfil de Letícia" class="photo" width="200" height="200">
     <h1>Letícia Machado</h1>
     <h2>Ciência da Computação</h2>
   </header>
   <main>
     <p>Olá! Meu nome é Letícia e curso Ciência da Computação pela Estácio. Amo tecnologia e gosto de explorar tecnologias que possam ser futuras tendências. Gosto de estudar sobre Blockchains e criptomoedas realizando testes de como criar contratos inteligentes na rede Ethereum.</p>
-   <a href="https://github.com/LeticiaMachadofac" target="_blank">GitHub</a>
+    <a href="https://github.com/LeticiaMachadofac" target="_blank">GitHub</a>
   </main>
 </body>
 </html>
